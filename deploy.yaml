@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+apiVersion: v1
+metadata:
+  name: hello-world-kad
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+  selector:
+    app: hello-world-kad
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: hello-world-kad
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: hello-world-kad
+    spec:
+      containers:
+      - name: hello-world-kad
+        image: kdunetz/kadspringapp:BUILD_NUMBER
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        ports:
+        - containerPort: 8080

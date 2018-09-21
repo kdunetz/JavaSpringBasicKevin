@@ -1,0 +1,11 @@
+This project requires Jenkins on my Desktop
+Kubernetes Using Unix Script
+
+The end result is a new Helm Chart..We don't have deletes now..so you have to update the Chart.yml file before you commit your software.
+
+Change some code
+
+git commit -a
+git push
+
+then the code should go out to .35 for COC 

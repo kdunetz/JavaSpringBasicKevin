@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: javaspringbasickad
+  labels:
+    app: javaspringbasickad
+spec:
+  type: LoadBalancer 
+  ports:
+     - port: 8080
+  selector:
+    app: javaspringbasickad
+---
+apiVersion: apps/v1beta1 
+kind: Deployment
+metadata:
+  name: javaspringbasickad
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: javaspringbasickad
+    spec:
+      containers:
+      - name: javaspringbasickad
+        image: kdunetz/kadspringapp:1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080

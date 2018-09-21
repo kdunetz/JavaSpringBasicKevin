@@ -1,0 +1,16 @@
+apiVersion: apps/v1beta1 
+kind: Deployment
+metadata:
+  name: javaspringbasickad
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: javaspringbasickad
+    spec:
+      containers:
+      - name: javaspringbasickad
+        image: mycluster.icp:8500/default/javaspringbasickad:latest
+        ports:
+        - containerPort: 8080
