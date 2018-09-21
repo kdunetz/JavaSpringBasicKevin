@@ -5,13 +5,18 @@ node {
         /* Let's make sure we have the repository cloned to our workspace */
 
         checkout scm
+        sh 'mvn clean package'
+    }
+
+    stage('Compile') {
+        sh 'mvn clean package'
     }
 
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("getintodevops/hellonode")
+        app = docker.build("kdunetz/hellonode")
     }
 
     stage('Test image') {
