@@ -6,8 +6,8 @@ node {
 
         checkout scm
         sh 'ls'
-        sh './updateVersion.sh'
-        sh "cat ./src/main/resources/static/index.html"
+        /* sh './updateVersion.sh' */
+        sh "cat src/main/resources/static/index.html"
         sh 'mvn clean package'
     }
 
