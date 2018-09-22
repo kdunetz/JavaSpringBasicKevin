@@ -9,3 +9,5 @@ git commit -a
 git push
 
 then the code should go out to .35 for COC 
+
+TAKES 40 seconds to get new Image deployed with Rollout

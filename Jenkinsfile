@@ -40,6 +40,7 @@ node {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
         }
+        sh "gcloud docker -- push us.gcr.io/another-project-213615/kadspringapp:${env.BUILD_NUMBER}"
     }
     stage('Deploy to Kubernetes') {
         sh 'gcloud config set compute/zone us-central1-a'
