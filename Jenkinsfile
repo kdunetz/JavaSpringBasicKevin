@@ -42,6 +42,6 @@ node {
         sh 'gcloud config set compute/zone us-central1-a'
         sh 'gcloud config set compute/region us-central1'
         sh 'gcloud container clusters get-credentials standard-cluster-1'
-        sh 'deploy.sh'
+        sh './deploy.sh'
     }
 }
