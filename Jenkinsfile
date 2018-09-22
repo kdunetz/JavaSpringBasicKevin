@@ -42,9 +42,6 @@ node {
         sh 'gcloud config set compute/zone us-central1-a'
         sh 'gcloud config set compute/region us-central1'
         sh 'gcloud container clusters get-credentials standard-cluster-1'
-        sh 'export NAMESPACE=default'
-        sh "export IMAGE=kdunetz/kadspringapp:${env.BUILD_NUMBER}"
-        sh 'export NAME=kadspringapp'
-        sh './deploy.sh'
+        sh "export NAMESPACE=default;export IMAGE=kdunetz/kadspringapp:${env.BUILD_NUMBER};export NAME=kadspringapp;./deploy.sh"
     }
 }
