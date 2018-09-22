@@ -1,7 +1,7 @@
 #!/bin/bash
 
-NAME=javaspringbasickad
-IMAGE=kdunetz/kadspringapp:$1
+#NAME=javaspringbasickad
+#IMAGE=kdunetz/kadspringapp:$1
 
 echo $IMAGE
 
