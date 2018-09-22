@@ -6,7 +6,7 @@ node {
 
         checkout scm
         sh 'ls'
-        sh "cat ./src/main/resources/static/index.html | sed 's/VERSION/${env.BUILD_NUMBER}/g' > ./src/main/resources/static/index.html"
+        sh './updateVersion.sh'
         sh "cat ./src/main/resources/static/index.html"
         sh 'mvn clean package'
     }
