@@ -40,7 +40,7 @@ node {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
         }
-        sh "docker tag kdunetz/kadspringapp:${env.BUILD_NUMBER} us.gcr.io/another-project-2136156/kadspringapp:${env.BUILD_NUMBER}"
+        sh "docker tag kdunetz/kadspringapp us.gcr.io/another-project-2136156/kadspringapp:${env.BUILD_NUMBER}"
         sh "gcloud docker -- push us.gcr.io/another-project-213615/kadspringapp:${env.BUILD_NUMBER}"
     }
     stage('Deploy to Kubernetes') {
