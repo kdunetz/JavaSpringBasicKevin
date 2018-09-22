@@ -38,4 +38,8 @@ node {
             app.push("latest")
         }
     }
+    stage('Deploy to Kubernetes') {
+        sh 'gcloud container clusters get-credentials standard-cluster-1'
+        sh 'deploy.sh'
+    }
 }
