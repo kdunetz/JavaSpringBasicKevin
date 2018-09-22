@@ -5,8 +5,9 @@ node {
         /* Let's make sure we have the repository cloned to our workspace */
 
         checkout scm
-        sh "cat /var/lib/jenkins/workspace/sample\ pipeline/src/main/resources/static/index.html | sed 's/VERSION/${env.BUILD_NUMBER}/g' > /var/lib/jenkins/workspace/sample\ pipeline/src/main/resources/static/index.html"
-        sh "cat /var/lib/jenkins/workspace/sample\ pipeline/src/main/resources/static/index.html"
+        sh 'ls'
+        sh "cat ./src/main/resources/static/index.html | sed 's/VERSION/${env.BUILD_NUMBER}/g' > ./src/main/resources/static/index.html"
+        sh "cat ./src/main/resources/static/index.html"
         sh 'mvn clean package'
     }
 
