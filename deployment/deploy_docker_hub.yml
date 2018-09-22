@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: javaspringbasickad
-        image: kdunetz/kadspringapp:1
+        image: IMAGE
         imagePullPolicy: Always
         ports:
         - containerPort: 8080

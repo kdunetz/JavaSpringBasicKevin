@@ -42,6 +42,12 @@ node {
         sh 'gcloud config set compute/zone us-central1-a'
         sh 'gcloud config set compute/region us-central1'
         sh 'gcloud container clusters get-credentials standard-cluster-1'
-        sh './deploy.sh'
+        sh 'export NAMESPACE=default'
+        sh 'export IMAGE=kdunetz/kadspringapp:${env.BUILD_NUMBER}'
+        sh 'export NAME=kadspringapp'
+        sh 'IMAGE=${IMAGE//[\/]/\\\/}'
+        sh 'kubectl delete -f <(cat deployment/deploy_docker_hub.yml | sed "s/IMAGE/$IMAGE/g" | sed "s/NAME/$NAME/g") -n $NAMESPACE'
+        sh 'kubectl create -f <(cat deployment/deploy_docker_hub.yml | sed "s/IMAGE/$IMAGE/g" | sed "s/NAME/$NAME/g") -n $NAMESPACE'
+        /* sh './deploy.sh' */
     }
 }
