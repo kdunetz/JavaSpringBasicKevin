@@ -11,3 +11,8 @@ git push
 then the code should go out to .35 for COC 
 
 TAKES 40 seconds to get new Image deployed with Rollout
+TAKES 35 seconds to get new Image deployed with Rollout FROM GCR.IO
+
+gcloud config set compute/zone us-central1-a
+gcloud config set compute/region us-central1
+gcloud container clusters get-credentials cluster-1
